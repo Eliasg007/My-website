@@ -1,0 +1,75 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+  /* colors */
+  --white-color: #fff;
+  --dark-color: #252525;
+  --primary-color: #bc9667;
+  --secondary-color: #edeae3;
+  --light-pink-color: #fddde4;
+  --text-color: #1b1b1b;
+
+  /* font sizes */
+  --font-size-xxs: 0.9rem;
+  --font-size-xs: 1rem;
+  --font-size-sm: 1.2rem;
+  --font-size-md: 1.5rem;
+  --font-size-lg: 2rem;
+  --font-size-xl: 2.3rem; 
+
+  /* font weight */
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
+
+  /* border radius */
+  --border-radius-sm: 8px;
+  --border-radius-md: 20px;
+  --border-radius-lg: 50px;
+  --border-radius-circle: 50%;
+  
+  /* site max width */
+  --site-max-width: 1300px;
+}
+
+/* Navbar styling */
+header {
+  background: var(--primary-color);
+}
+
+header .navbar {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .navbar {
+  color: var(--white-color);
+}
+
+header .nav-menu {
+  display: flex;
+  gap: 10px;
+}
+
+header .nav-link {
+  color: var(--white-color);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-500);
+}
+
+header .nav-link:hover {
+  color: var(--secondary-color);
+  transition: 0.3s;
+}
