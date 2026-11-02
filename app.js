@@ -9,6 +9,37 @@
 const qs  = (sel, ctx = document) => ctx.querySelector(sel);
 const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
+/* ── Theme toggle ───────────────────────────────────────────── */
+const themeToggle = qs('#theme-toggle');
+const themeStorageKey = 'brew-house-theme';
+
+function applyTheme(theme) {
+  const isDark = theme === 'dark';
+  document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
+  themeToggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} theme`);
+  themeToggle.title = `Switch to ${isDark ? 'light' : 'dark'} theme`;
+  qs('span', themeToggle).textContent = isDark ? '☀' : '☾';
+}
+
+let initialTheme = 'light';
+try {
+  const savedTheme = localStorage.getItem(themeStorageKey);
+  if (savedTheme === 'dark' || savedTheme === 'light') initialTheme = savedTheme;
+} catch (error) {
+  console.warn('Unable to load the saved theme preference.', error);
+}
+applyTheme(initialTheme);
+
+themeToggle.addEventListener('click', () => {
+  const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  applyTheme(nextTheme);
+  try {
+    localStorage.setItem(themeStorageKey, nextTheme);
+  } catch (error) {
+    console.warn('Unable to save the theme preference.', error);
+  }
+});
+
 /* ─────────────────────────────────────────────────────────────
    1. STICKY HEADER — adds .is-scrolled after 40 px scroll
 ───────────────────────────────────────────────────────────── */
