@@ -255,6 +255,28 @@ address { font-style: normal; }
   border-color: var(--clr-primary);
 }
 
+/* Theme toggle */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--clr-white);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--t-base), transform var(--t-fast);
+}
+.theme-toggle:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+}
+
 /* Submit button with spinner */
 .btn-submit { position: relative; min-width: 180px; justify-content: center; }
 .btn-spinner {
@@ -1487,4 +1509,98 @@ address { font-style: normal; }
 
   .testi-card { padding: var(--sp-6) var(--sp-4); }
   .testi-card blockquote p { font-size: var(--text-md); }
+}
+
+/* ── Dark theme ─────────────────────────────────────────────── */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --theme-page: #1e1a17;
+  --theme-page-alt: #24211e;
+  --theme-surface: #2d2820;
+  --theme-surface-alt: #38322c;
+  --theme-blush: #30272a;
+  --theme-text: #f5f0e8;
+  --theme-muted: #c6bbb0;
+  --theme-border: #4b4239;
+}
+
+:root[data-theme="dark"] body {
+  background: var(--theme-page);
+  color: var(--theme-text);
+}
+
+:root[data-theme="dark"] .about,
+:root[data-theme="dark"] .contact {
+  background: var(--theme-page-alt);
+}
+
+:root[data-theme="dark"] .menu {
+  background: var(--theme-page);
+}
+
+:root[data-theme="dark"] .testimonials {
+  background: var(--theme-blush);
+}
+
+:root[data-theme="dark"] .value-card,
+:root[data-theme="dark"] .menu-card,
+:root[data-theme="dark"] .testi-card,
+:root[data-theme="dark"] .contact-form-wrap {
+  background: var(--theme-surface);
+  color: var(--theme-text);
+}
+
+:root[data-theme="dark"] .about-text p,
+:root[data-theme="dark"] .section-lead,
+:root[data-theme="dark"] .value-card p,
+:root[data-theme="dark"] .team-card span,
+:root[data-theme="dark"] .menu-card p,
+:root[data-theme="dark"] .menu-tag,
+:root[data-theme="dark"] .menu-note,
+:root[data-theme="dark"] .testi-card figcaption span,
+:root[data-theme="dark"] .contact-details strong {
+  color: var(--theme-muted);
+}
+
+:root[data-theme="dark"] .menu-card h3,
+:root[data-theme="dark"] .testi-card figcaption strong,
+:root[data-theme="dark"] .contact-details span,
+:root[data-theme="dark"] .contact-details a,
+:root[data-theme="dark"] .form-heading,
+:root[data-theme="dark"] .form-group label {
+  color: var(--theme-text);
+}
+
+:root[data-theme="dark"] .menu-card-footer {
+  border-color: var(--theme-border);
+}
+
+:root[data-theme="dark"] .team-avatar,
+:root[data-theme="dark"] .map-placeholder {
+  background: var(--theme-surface-alt);
+}
+
+:root[data-theme="dark"] .social-link {
+  border-color: var(--theme-border);
+  color: var(--theme-muted);
+}
+
+:root[data-theme="dark"] .form-group input,
+:root[data-theme="dark"] .form-group textarea,
+:root[data-theme="dark"] .form-group select {
+  background: var(--theme-surface-alt);
+  border-color: var(--theme-border);
+  color: var(--theme-text);
+}
+
+:root[data-theme="dark"] .field-error {
+  color: #ff9a91;
+}
+
+:root[data-theme="dark"] .form-feedback.is-success {
+  color: #8fe2a8;
+}
+
+:root[data-theme="dark"] .form-feedback.is-error {
+  color: #ff9a91;
 }
